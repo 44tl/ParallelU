@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Parallel Universes and Quantum Reality</title>
+  <meta name="description" content="A modern research-style website exploring parallel universes, multi-slit interference, spacetime structure, and temporal pathways." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #050608;
+      --panel: rgba(15, 18, 24, 0.82);
+      --panel-2: rgba(22, 26, 34, 0.78);
+      --text: #f5f7fb;
+      --muted: #a3adbe;
+      --soft: #7c8698;
+      --line: rgba(255,255,255,0.08);
+      --line-strong: rgba(255,255,255,0.14);
+      --accent: #a7c7ff;
+      --accent-2: #c8b6ff;
+      --accent-3: #93f5d0;
+      --shadow: 0 20px 60px rgba(0,0,0,0.35);
+      --radius-xl: 28px;
+      --radius-lg: 22px;
+      --radius-md: 18px;
+      --max: 1220px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at 15% 20%, rgba(167,199,255,0.11), transparent 26%),
+        radial-gradient(circle at 80% 10%, rgba(200,182,255,0.10), transparent 28%),
+        radial-gradient(circle at 70% 70%, rgba(147,245,208,0.06), transparent 22%),
+        linear-gradient(180deg, #06070b 0%, #090c12 45%, #050608 100%);
+      color: var(--text);
+      font-family: Inter, sans-serif;
+      line-height: 1.6;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.022) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.022) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: radial-gradient(circle at center, rgba(0,0,0,0.9), transparent 95%);
+      z-index: -1;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(18px);
+      background: rgba(6, 8, 12, 0.7);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav-inner {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: "Space Grotesk", sans-serif;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      font-size: 18px;
+    }
+
+    .brand-mark {
+      width: 40px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      border: 1px solid var(--line-strong);
+      background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.03));
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.05);
+    }
+
+    .brand-mark svg {
+      width: 20px;
+      height: 20px;
+      stroke: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .nav-links a {
+      padding: 10px 14px;
+      border-radius: 999px;
+      transition: 0.22s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+      background: rgba(255,255,255,0.05);
+    }
+
+    .hero {
+      padding: 84px 0 48px;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .badge {
+      width: fit-content;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.03);
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+
+    .badge-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: linear-gradient(180deg, var(--accent), var(--accent-2));
+      box-shadow: 0 0 20px rgba(167,199,255,0.45);
+    }
+
+    h1, h2, h3 {
+      margin: 0;
+      letter-spacing: -0.05em;
+    }
+
+    h1 {
+      margin-top: 22px;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(44px, 7vw, 86px);
+      line-height: 0.95;
+      max-width: 800px;
+    }
+
+    .hero-copy p {
+      margin: 22px 0 0;
+      max-width: 720px;
+      color: var(--muted);
+      font-size: clamp(17px, 2.2vw, 20px);
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 28px;
+    }
+
+    .btn {
+      min-height: 48px;
+      padding: 0 18px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      border-radius: 999px;
+      border: 1px solid var(--line-strong);
+      font-weight: 700;
+      font-size: 14px;
+      transition: transform 0.18s ease, background 0.18s ease, border-color 0.18s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: linear-gradient(180deg, #f7faff, #dce7ff);
+      color: #0b1020;
+      border-color: transparent;
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.04);
+      color: var(--text);
+    }
+
+    .visual-card,
+    .panel,
+    .quote-panel,
+    .diagram-card,
+    .table-card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
+    }
+
+    .visual-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 540px;
+      padding: 28px;
+      background:
+        radial-gradient(circle at 50% 20%, rgba(167,199,255,0.12), transparent 28%),
+        radial-gradient(circle at 30% 70%, rgba(200,182,255,0.08), transparent 28%),
+        linear-gradient(180deg, rgba(18,22,30,0.95), rgba(9,12,18,0.95));
+    }
+
+    .visual-card::before {
+      content: "";
+      position: absolute;
+      inset: auto -10% -35% -10%;
+      height: 60%;
+      background: radial-gradient(circle at center, rgba(255,255,255,0.08), transparent 60%);
+      filter: blur(30px);
+    }
+
+    .visual-meta {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .visual-meta span {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--line);
+    }
+
+    .interference-stage {
+      position: relative;
+      z-index: 2;
+      height: 440px;
+      margin-top: 26px;
+      display: grid;
+      grid-template-columns: 70px 120px 1fr;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .source {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: linear-gradient(180deg, #f7faff, #cbd7ee);
+      box-shadow: 0 0 30px rgba(255,255,255,0.25);
+      justify-self: center;
+    }
+
+    .slit-block {
+      height: 78%;
+      border-radius: 28px;
+      border: 1px solid rgba(255,255,255,0.07);
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      position: relative;
+    }
+
+    .slit {
+      width: 10px;
+      height: 52px;
+      border-radius: 999px;
+      background: linear-gradient(180deg, #eef4ff, #b9c6da);
+    }
+
+    .screen {
+      height: 86%;
+      border-radius: 32px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background:
+        radial-gradient(circle at center, rgba(255,255,255,0.08), transparent 58%),
+        repeating-linear-gradient(
+          180deg,
+          rgba(255,255,255,0.92) 0 5px,
+          rgba(255,255,255,0.10) 5px 11px,
+          transparent 11px 28px
+        );
+      overflow: hidden;
+      position: relative;
+    }
+
+    .path {
+      position: absolute;
+      left: 19%;
+      width: 55%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(220,230,255,0.78), transparent);
+      transform-origin: left center;
+      opacity: 0.78;
+    }
+
+    .path.p1 { top: 24%; transform: rotate(-18deg); }
+    .path.p2 { top: 34%; transform: rotate(-11deg); }
+    .path.p3 { top: 45%; transform: rotate(-4deg); }
+    .path.p4 { top: 56%; transform: rotate(4deg); }
+    .path.p5 { top: 66%; transform: rotate(12deg); }
+    .path.p6 { top: 76%; transform: rotate(18deg); }
+
+    .section {
+      padding: 34px 0 0;
+    }
+
+    .section-inner {
+      padding: 38px 0;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: 0.75fr 1.25fr;
+      gap: 26px;
+      align-items: start;
+      margin-bottom: 22px;
+    }
+
+    .eyebrow {
+      color: var(--soft);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 12px;
+      font-weight: 800;
+      padding-top: 8px;
+    }
+
+    h2 {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(30px, 5vw, 58px);
+      line-height: 1;
+      max-width: 760px;
+    }
+
+    .section-head p {
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: 17px;
+      max-width: 840px;
+    }
+
+    .grid-3,
+    .grid-2 {
+      display: grid;
+      gap: 18px;
+    }
+
+    .grid-3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .grid-2 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .panel {
+      padding: 24px;
+    }
+
+    .icon-title {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 12px;
+    }
+
+    .icon-wrap {
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(180deg, rgba(167,199,255,0.12), rgba(167,199,255,0.04));
+      border: 1px solid rgba(167,199,255,0.18);
+    }
+
+    .icon-wrap svg {
+      width: 22px;
+      height: 22px;
+      stroke: var(--accent);
+    }
+
+    h3 {
+      font-size: 22px;
+      line-height: 1.08;
+    }
+
+    .panel p {
+      color: var(--muted);
+      margin: 0;
+      font-size: 15px;
+    }
+
+    .quote-panel {
+      padding: 28px;
+      background:
+        radial-gradient(circle at top right, rgba(200,182,255,0.16), transparent 30%),
+        linear-gradient(180deg, rgba(18,22,30,0.95), rgba(12,15,22,0.95));
+      position: relative;
+      overflow: hidden;
+    }
+
+    .quote-top {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--soft);
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      margin-bottom: 18px;
+    }
+
+    .quote-top svg {
+      width: 18px;
+      height: 18px;
+      stroke: var(--accent-2);
+    }
+
+    blockquote {
+      margin: 0;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(28px, 4.2vw, 52px);
+      line-height: 1.06;
+      letter-spacing: -0.045em;
+      color: var(--text);
+      max-width: 980px;
+    }
+
+    .quote-note {
+      margin-top: 18px;
+      max-width: 880px;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .diagram-card {
+      padding: 28px;
+      min-height: 400px;
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 20% 10%, rgba(147,245,208,0.08), transparent 25%),
+        linear-gradient(180deg, rgba(17,20,27,0.95), rgba(10,12,18,0.95));
+    }
+
+    .diagram {
+      position: relative;
+      height: 300px;
+      margin-top: 18px;
+      border-radius: 22px;
+      border: 1px solid rgba(255,255,255,0.06);
+      background: rgba(255,255,255,0.02);
+      overflow: hidden;
+    }
+
+    .branch {
+      position: absolute;
+      left: 8%;
+      width: 78%;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, rgba(255,255,255,0.08), rgba(167,199,255,0.82), rgba(255,255,255,0.1));
+      transform-origin: left center;
+    }
+
+    .branch.b1 { top: 24%; transform: rotate(12deg); }
+    .branch.b2 { top: 40%; transform: rotate(5deg); }
+    .branch.b3 { top: 52%; transform: rotate(-2deg); }
+    .branch.b4 { top: 65%; transform: rotate(-10deg); }
+    .branch.b5 { top: 76%; transform: rotate(-16deg); }
+
+    .node {
+      position: absolute;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: linear-gradient(180deg, #f7faff, #c9d6ea);
+      box-shadow: 0 0 22px rgba(167,199,255,0.35);
+    }
+
+    .n1 { left: 8%; top: 49%; }
+    .n2 { left: 34%; top: 35%; }
+    .n3 { left: 56%; top: 54%; }
+    .n4 { left: 76%; top: 26%; }
+    .n5 { left: 90%; top: 72%; }
+
+    .diagram-copy {
+      margin-top: 16px;
+      color: var(--muted);
+      max-width: 760px;
+      font-size: 15px;
+    }
+
+    .table-card {
+      overflow: hidden;
+      background: rgba(14,17,22,0.9);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 18px 20px;
+      text-align: left;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+    }
+
+    th {
+      color: var(--text);
+      background: rgba(255,255,255,0.03);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-weight: 800;
+    }
+
+    td {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .tag {
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.03);
+      color: var(--soft);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .warning {
+      background:
+        radial-gradient(circle at top right, rgba(255,210,140,0.08), transparent 30%),
+        rgba(21, 18, 14, 0.75);
+      border: 1px solid rgba(255,210,140,0.16);
+    }
+
+    .danger {
+      background:
+        radial-gradient(circle at top right, rgba(255,144,144,0.08), transparent 30%),
+        rgba(22, 15, 18, 0.75);
+      border: 1px solid rgba(255,144,144,0.16);
+    }
+
+    .mini {
+      font-size: 13px;
+      color: var(--soft);
+    }
+
+    .ending {
+      padding-bottom: 54px;
+    }
+
+    @media (max-width: 980px) {
+      .hero,
+      .section-head,
+      .grid-3,
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+
+      .visual-card {
+        min-height: 480px;
+      }
+
+      .interference-stage {
+        grid-template-columns: 54px 92px 1fr;
+        gap: 16px;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .nav-links {
+        display: none;
+      }
+
+      .container {
+        width: min(calc(100% - 20px), var(--max));
+      }
+
+      .hero {
+        padding-top: 56px;
+      }
+
+      .visual-card {
+        padding: 18px;
+        min-height: 430px;
+      }
+
+      .interference-stage {
+        height: 350px;
+      }
+
+      .panel,
+      .quote-panel,
+      .diagram-card {
+        padding: 20px;
+      }
+
+      blockquote {
+        font-size: 32px;
+      }
+
+      th, td {
+        padding: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a href="#top" class="brand">
+        <span class="brand-mark">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 12h12"></path>
+            <path d="M9 7c2-1.5 4-1.5 6 0"></path>
+            <path d="M9 17c2 1.5 4 1.5 6 0"></path>
+            <circle cx="12" cy="12" r="9"></circle>
+          </svg>
+        </span>
+        <span>Parallel Universes and Quantum Reality</span>
+      </a>
+      <div class="nav-links">
+        <a href="#research">Research</a>
+        <a href="#interference">Interference</a>
+        <a href="#worlds">Many Worlds</a>
+        <a href="#spacetime">Spacetime</a>
+        <a href="#time">Time</a>
+        <a href="#limits">Limits</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="top">
+    <section class="container hero">
+      <div class="hero-copy">
+        <div class="badge">
+          <span class="badge-dot"></span>
+          Quantum interpretation · topology · temporal structure
+        </div>
+        <h1>Mapping the strange architecture of parallel universes</h1>
+        <p>
+          This website explores a research-driven view of reality where multi-slit interference, branching quantum outcomes, spacetime geometry, and temporal pathways may all be connected parts of a deeper structure.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#research">Read the research</a>
+          <a class="btn btn-secondary" href="#limits">Scientific boundaries</a>
+        </div>
+      </div>
+
+      <div class="visual-card">
+        <div class="visual-meta">
+          <span>Multi-slit system</span>
+          <span>Coherence map</span>
+        </div>
+
+        <div class="path p1"></div>
+        <div class="path p2"></div>
+        <div class="path p3"></div>
+        <div class="path p4"></div>
+        <div class="path p5"></div>
+        <div class="path p6"></div>
+
+        <div class="interference-stage">
+          <div class="source"></div>
+          <div class="slit-block">
+            <span class="slit"></span>
+            <span class="slit"></span>
+            <span class="slit"></span>
+            <span class="slit"></span>
+            <span class="slit"></span>
+          </div>
+          <div class="screen"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container section" id="research">
+      <div class="quote-panel">
+        <div class="quote-top">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M10 11H6a4 4 0 0 1 4-4"></path>
+            <path d="M18 11h-4a4 4 0 0 1 4-4"></path>
+            <path d="M10 11v5a2 2 0 0 1-2 2H6"></path>
+            <path d="M18 11v5a2 2 0 0 1-2 2h-2"></path>
+          </svg>
+          personal research note
+        </div>
+        <blockquote>
+          I’ve been doing very precise research on parallel universes and I gotta say it feels crazy how real the possibility seems.
+        </blockquote>
+        <div class="quote-note">
+          This site presents that perspective as a serious research direction and philosophical stance while still separating experimentally established physics from interpretation and speculation.
+        </div>
+      </div>
+    </section>
+
+    <section class="container section" id="interference">
+      <div class="section-inner">
+        <div class="section-head">
+          <div class="eyebrow">01 · Interference</div>
+          <div>
+            <h2>The pattern on the screen is where the story begins</h2>
+            <p>
+              Multi-slit interference remains one of the clearest demonstrations that quantum reality does not behave like ordinary classical motion. Particles do not simply choose a single obvious route. Instead the final result emerges from superposed possibilities that reinforce or cancel each other.
+            </p>
+          </div>
+        </div>
+
+        <div class="grid-3">
+          <article class="panel">
+            <div class="icon-title">
+              <span class="icon-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 3v18"></path>
+                  <path d="M8 6h8"></path>
+                  <path d="M8 18h8"></path>
+                </svg>
+              </span>
+              <h3>Single slit</h3>
+            </div>
+            <p>A broad diffraction distribution appears because the quantum object is not described by a sharp classical path.</p>
+          </article>
+
+          <article class="panel">
+            <div class="icon-title">
+              <span class="icon-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M8 4v16"></path>
+                  <path d="M16 4v16"></path>
+                </svg>
+              </span>
+              <h3>Double slit</h3>
+            </div>
+            <p>Two coherent alternatives create the familiar bright and dark banding that defines wave-like quantum interference.</p>
+          </article>
+
+          <article class="panel">
+            <div class="icon-title">
+              <span class="icon-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 4v16"></path>
+                  <path d="M10 4v16"></path>
+                  <path d="M15 4v16"></path>
+                  <path d="M20 4v16"></path>
+                </svg>
+              </span>
+              <h3>Multiple slits</h3>
+            </div>
+            <p>As the slit count rises the principal maxima sharpen and the structure of the pattern becomes more precise and more complex.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="container section">
+      <div class="section-inner">
+        <div class="table-card">
+          <table>
+            <thead>
+              <tr>
+                <th>Configuration</th>
+                <th>Observed behavior</th>
+                <th>Interpretive meaning</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Single slit</td>
+                <td>Broad diffraction envelope</td>
+                <td>Probability spreads due to quantum uncertainty and wave behavior.</td>
+              </tr>
+              <tr>
+                <td>Double slit</td>
+                <td>Alternating interference fringes</td>
+                <td>Two paths combine as amplitudes rather than ordinary classical probabilities.</td>
+              </tr>
+              <tr>
+                <td>Three to seven slits</td>
+                <td>Narrower principal maxima and richer structure</td>
+                <td>More coherent alternatives contribute to the resulting distribution.</td>
+              </tr>
+              <tr>
+                <td>Which-path detection</td>
+                <td>Interference disappears</td>
+                <td>Decoherence destroys the conditions needed for visible path superposition.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="container section" id="worlds">
+      <div class="section-inner">
+        <div class="section-head">
+          <div class="eyebrow">02 · Many worlds</div>
+          <div>
+            <h2>Does interference hint at more than one world</h2>
+            <p>
+              The Many-Worlds Interpretation argues that the wave function never truly collapses. Every possible quantum outcome continues as part of a larger universal structure, while decoherence separates these branches from one another.
+            </p>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <article class="panel">
+            <div class="icon-title">
+              <span class="icon-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="8"></circle>
+                  <path d="M12 8v8"></path>
+                  <path d="M8 12h8"></path>
+                </svg>
+              </span>
+              <h3>Copenhagen style reading</h3>
+            </div>
+            <p>The wave function acts as a predictive framework and measurement yields a definite observed result. Interference is real but not necessarily proof of actual branching universes.</p>
+            <div class="tag-row">
+              <span class="tag">collapse</span>
+              <span class="tag">measurement</span>
+              <span class="tag">prediction</span>
+            </div>
+          </article>
+
+          <article class="panel">
+            <div class="icon-title">
+              <span class="icon-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 3v18"></path>
+                  <path d="M12 12l7-7"></path>
+                  <path d="M12 12l7 7"></path>
+                  <path d="M12 12L5 5"></path>
+                  <path d="M12 12l-7 7"></path>
+                </svg>
+              </span>
+              <h3>Many-worlds style reading</h3>
+            </div>
+            <p>The universal wave function is physically real and every allowed result persists in a different branch. Interference becomes evidence of a deeper layered reality.</p>
+            <div class="tag-row">
+              <span class="tag">branching</span>
+              <span class="tag">decoherence</span>
+              <span class="tag">ontology</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="container section">
+      <div class="section-inner">
+        <div class="diagram-card">
+          <div class="icon-title">
+            <span class="icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 12h6"></path>
+                <path d="M14 12h6"></path>
+                <path d="M10 12c0-4 2-7 2-7s2 3 2 7-2 7-2 7-2-3-2-7Z"></path>
+              </svg>
+            </span>
+            <h3>Branching universe map</h3>
+          </div>
+          <div class="diagram">
+            <span class="branch b1"></span>
+            <span class="branch b2"></span>
+            <span class="branch b3"></span>
+            <span class="branch b4"></span>
+            <span class="branch b5"></span>
+            <span class="node n1"></span>
+            <span class="node n2"></span>
+            <span class="node n3"></span>
+            <span class="node n4"></span>
+            <span class="node n5"></span>
+          </div>
+          <div class="diagram-copy">
+            This branching map is a conceptual visual model. It shows how one quantum event can be interpreted as a divergence point within a larger multiversal structure.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container section" id="spacetime">
+      <div class="section-inner">
+        <div class="section-head">
+          <div class="eyebrow">03 · Spacetime</div>
+          <div>
+            <h2>If spacetime has structure then geometry becomes a medium</h2>
+            <p>
+              General relativity treats gravity as curvature in spacetime. More speculative frameworks ask whether spacetime may also undergo deeper topological changes such as folds bridges or discontinuities under extreme conditions.
+            </p>
+          </div>
+        </div>
+
+        <div class="grid-3">
+          <article class="panel">
+            <div class="icon-title">
+              <span class="icon-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 17c4-8 12-8 16 0"></path>
+                  <path d="M4 12c4-6 12-6 16 0"></path>
+                  <path d="M4 7c4-4 12-4 16 0"></path>
+                </svg>
+              </span>
+              <h3>Curvature</h3>
+            </div>
+            <p>Mass and energy bend spacetime and alter the motion of light matter and clocks.</p>
+          </article>
+
+          <article class="panel">
+            <div class="icon-title">
+              <span class="icon-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M6 8c2-2 4-2 6 0s4 2 6 0"></path>
+                  <path d="M6 16c2-2 4-2 6 0s4 2 6 0"></path>
+                </svg>
+              </span>
+              <h3>Topology change</h3>
+            </div>
+            <p>Some quantum gravity and string-inspired ideas allow geometry to transition between shapes in ways classical smooth spacetime does not.</p>
+          </article>
+
+          <article class="panel">
+            <div class="icon-title">
+              <span class="icon-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M7 12c0-3 2-5 5-5h2"></path>
+                  <path d="M17 12c0 3-2 5-5 5h-2"></path>
+                  <path d="M9 12h6"></path>
+                </svg>
+              </span>
+              <h3>Wormholes</h3>
+            </div>
+            <p>A wormhole is a hypothetical bridge connecting separated regions of spacetime though stable traversable versions remain unverified.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="container section" id="time">
+      <div class="section-inner">
+        <div class="section-head">
+          <div class="eyebrow">04 · Temporal pathways</div>
+          <div>
+            <h2>The more perspective expands the less time looks like a straight line</h2>
+            <p>
+              In block-universe thinking the past present and future all exist as parts of a single four-dimensional whole. From inside that structure time feels sequential. From a higher descriptive viewpoint it resembles a landscape or map.
+            </p>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <article class="panel">
+            <div class="icon-title">
+              <span class="icon-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 8v4l3 2"></path>
+                  <circle cx="12" cy="12" r="8"></circle>
+                </svg>
+              </span>
+              <h3>Closed timelike curves</h3>
+            </div>
+            <p>Some relativistic solutions mathematically allow paths that loop into the past. Whether the real universe permits them is still unresolved.</p>
+          </article>
+
+          <article class="panel">
+            <div class="icon-title">
+              <span class="icon-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h8"></path>
+                  <path d="M10 7l5 5-5 5"></path>
+                  <path d="M19 5v14"></path>
+                </svg>
+              </span>
+              <h3>Parallel-branch paradox escape</h3>
+            </div>
+            <p>Under a multiverse reading a traveler going to the past may enter a parallel branch rather than erase the origin branch they came from.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="container section" id="limits">
+      <div class="section-inner">
+        <div class="section-head">
+          <div class="eyebrow">05 · Scientific limits</div>
+          <div>
+            <h2>The strongest version of the idea still needs boundaries</h2>
+            <p>
+              Interference patterns decoherence and relativistic spacetime are established science. Claims that interference directly proves parallel universes or that time travel is achievable remain interpretations or theoretical possibilities rather than settled empirical facts.
+            </p>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <article class="panel warning">
+            <div class="icon-title">
+              <span class="icon-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 8v5"></path>
+                  <path d="M12 17h.01"></path>
+                  <path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0Z"></path>
+                </svg>
+              </span>
+              <h3>Established ground</h3>
+            </div>
+            <p>Quantum interference, wave functions, decoherence, and spacetime curvature belong to mainstream physics and are supported by experiment.</p>
+          </article>
+
+          <article class="panel danger">
+            <div class="icon-title">
+              <span class="icon-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="9"></circle>
+                  <path d="M9 9l6 6"></path>
+                  <path d="M15 9l-6 6"></path>
+                </svg>
+              </span>
+              <h3>Speculative layer</h3>
+            </div>
+            <p>Many-worlds as literal reality, shadow-photon style explanations, topological tearing, wormhole travel, and practical access to the past remain speculative.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="container section ending">
+      <div class="section-inner">
+        <div class="quote-panel">
+          <div class="quote-top">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2v20"></path>
+              <path d="M2 12h20"></path>
+              <path d="M5 5l14 14"></path>
+              <path d="M19 5 5 19"></path>
+            </svg>
+            synthesis
+          </div>
+          <blockquote>
+            Reality may not be a single clean storyline but a deeper field of allowed paths branches and structures waiting to be understood.
+          </blockquote>
+          <div class="quote-note">
+            The purpose of this website is not to pretend every speculation is proven. It is to present a compelling and visually strong framework for thinking about how quantum behavior spacetime structure and multiversal interpretation may connect.
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
